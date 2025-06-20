@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReVyve Wellness Lounge - Luxury IV Therapy & Anti-Aging in Lafayette, LA</title>
+    <meta name="description" content="ReVyve Wellness Lounge in Lafayette, LA offers luxury IV therapy, hormone optimization, stem cell treatments, and more. Book your free wellness consult today for a revitalized you!">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/icon-iv-therapy.webp">
+    <link rel="apple-touch-icon" href="images/icon-iv-therapy.webp">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Internal CSS for Custom Styles & Mobile-First Architecture -->
+    <style>
+        /* Base styles for the entire page */
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #121212; /* Primary black */
+            color: #E0E0E0; /* Light gray for text */
+        }
+        
+        /* Custom font classes */
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        /* Gold Theme Colors */
+        .gold-text { color: #D4AF37; }
+        .gold-accent { color: #B08D57; }
+        .gold-bg { background-color: #D4AF37; }
+        .gold-border { border-color: #D4AF37; }
+
+        /* --- BUTTON STYLES (Mobile-First) --- */
+        .btn-primary {
+            background-color: #D4AF37;
+            color: #121212;
+            font-weight: bold;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-block; /* Ensures proper sizing */
+        }
+        .btn-primary:hover {
+            background-color: #c09b30;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: #D4AF37;
+            border: 2px solid #D4AF37;
+            font-weight: bold;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-block; /* Ensures proper sizing */
+        }
+        .btn-secondary:hover {
+            background-color: #D4AF37;
+            color: #121212;
+        }
+
+        /* --- LAYOUT & SPACING (Mobile-First) --- */
+        .section-padding {
+            padding: 4rem 1rem; /* Default padding for mobile */
+        }
+        /* Media query for tablets and larger screens */
+        @media (min-width: 768px) {
+            .section-padding {
+                padding: 6rem 2rem; /* Increased padding for larger screens */
+            }
+        }
+
+        /* --- HERO VIDEO BACKGROUND --- */
+        .hero-background-video {
+            position: absolute;
+            /* Center the video */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* Ensure it covers the container */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Place it behind all content */
+            z-index: -1;
+        }
+
+        /* --- MOBILE NAVIGATION --- */
+        .mobile-menu {
+            display: none; /* Hidden by default */
+            background-color: #121212;
+            position: absolute;
+            top: 100%; /* Position right below the nav bar */
+            left: 0;
+            width: 100%;
+            padding: 1rem 0;
+            border-top: 1px solid #333;
+            z-index: 999;
+        }
+        .mobile-menu.active {
+            display: block; /* Show when active */
+        }
+
+        /* --- MODAL DIALOGS --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0,0,0,0.75);
+            display: none; /* Hidden by default */
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            overflow-y: auto; /* Allow scroll on long modals */
+            padding: 1rem; /* Padding for mobile */
+        }
+        .modal-content {
+            background-color: #1a1a1a;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            border: 1px solid #D4AF37;
+            width: 100%;
+            max-width: 600px; /* Max width for larger screens */
+            position: relative;
+            margin: auto;
+        }
+        .modal-card {
+             background-color: #1f1f1f;
+             border: 1px solid #D4AF37;
+             border-radius: 0.75rem;
+             box-shadow: 0 10px 25px rgba(212, 175, 55, 0.1);
+        }
+        .modal-close-btn {
+            position: absolute;
+            top: 1rem; right: 1rem;
+            color: #D4AF37;
+            font-size: 1.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+    </style>
+
+    <!-- Schema.org for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "name": "ReVyve Wellness Lounge",
+      "description": "Luxury wellness lounge in Lafayette, LA, specializing in IV therapy, hormone optimization, stem cell treatments, peptide therapy, NAD+, and sauna detox.",
+      "image": "images/logo-revyve-lounge.png",
+      "url": "https://www.revyvewellness.com",
+      "telephone": "+1-337-291-0982",
+      "email": "info@revyvewellness.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3809 Ambassador Caffery Pkwy",
+        "addressLocality": "Lafayette",
+        "addressRegion": "LA",
+        "postalCode": "70503",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "30.182270",
+        "longitude": "-92.067370"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "17:00"
+        }
+      ],
+      "priceRange": "$$$",
+      "sameAs": ["https://instagram.com/revyvewellness"]
+    }
+    </script>
+</head>
+<body class="bg-black text-gray-200 antialiased">
+
+    <!-- ==== HEADER & NAVIGATION ==== -->
+    <nav class="fixed top-0 left-0 right-0 bg-black bg-opacity-90 backdrop-blur-sm z-50 shadow-lg border-b border-neutral-800 py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-2">
+                <img src="images/logo-revyve-lounge.png" alt="ReVyve Wellness Lounge Logo" class="h-12 w-auto">
+            </a>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#about-us-section" class="text-lg text-gray-300 hover:text-gold-text transition-colors duration-200">About</a>
+                <a href="#signature-treatments" class="text-lg text-gray-300 hover:text-gold-text transition-colors duration-200">Treatments</a>
+                <a href="https://www.zocdoc.com/practice/revyve-wellness-135421?lock=true&isNewPatient=false&referrerType=widget" target="_blank" rel="noopener noreferrer" class="text-lg text-gray-300 hover:text-gold-text transition-colors duration-200">Book Now</a>
+                <a href="#contact-section" class="text-lg text-gray-300 hover:text-gold-text transition-colors duration-200">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gold-text focus:outline-none" aria-label="Open mobile menu" aria-expanded="false">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m4 6h16"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="mobile-menu">
+            <div class="flex flex-col items-center space-y-4 py-4">
+                <a href="#about-us-section" class="text-lg text-gray-300 hover:text-gold-text" onclick="closeMobileMenu()">About</a>
+                <a href="#signature-treatments" class="text-lg text-gray-300 hover:text-gold-text" onclick="closeMobileMenu()">Treatments</a>
+                <a href="https://www.zocdoc.com/practice/revyve-wellness-135421?lock=true&isNewPatient=false&referrerType=widget" target="_blank" rel="noopener noreferrer" class="text-lg text-gray-300 hover:text-gold-text" onclick="closeMobileMenu()">Book Now</a>
+                <a href="#contact-section" class="text-lg text-gray-300 hover:text-gold-text" onclick="closeMobileMenu()">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==== HERO SECTION ==== -->
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden section-padding pt-24 md:pt-32">
+        <!-- Background Container -->
+        <div class="absolute inset-0 z-0">
+            <!-- Video Background Element -->
+            <video playsinline autoplay muted loop class="hero-background-video">
+                <source src="videos/ReVyve_Wellness_Landing_Page_Video.mp4" type="video/mp4">
+                Your browser does not support the video tag. An elegant background is displayed instead.
+            </video>
+            <!-- Dark Overlay for text readability -->
+            <div class="absolute inset-0 bg-black opacity-60"></div>
+        </div>
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center p-4">
+            <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold gold-text mb-6 leading-tight">
+                Science-Backed. <span class="block md:inline">Luxury-Inspired.</span> You, ReVyved.
+            </h1>
+            <p class="text-lg sm:text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto">
+                Premier Hormones • IV Therapy • Weight Loss • Stem Cell • Longevity Treatments in Lafayette, LA
+                <span class="block mt-2 text-gold-accent font-semibold">Transform Your Health. Transform Your Life.</span>
+            </p>
+            <!-- Call to Action Buttons -->
+            <div class="space-y-4 sm:space-y-0 sm:flex sm:flex-row sm:justify-center sm:space-x-6">
+                <a href="https://www.zocdoc.com/practice/revyve-wellness-135421?lock=true&isNewPatient=false&referrerType=widget" target="_blank" rel="noopener noreferrer" class="btn-primary text-base md:text-lg">
+                    Book Your Free Wellness Consult
+                </a>
+                <a href="#signature-treatments" class="btn-secondary text-base md:text-lg">
+                    Explore Treatments
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==== SIGNATURE TREATMENTS SECTION ==== -->
+    <section id="signature-treatments" class="section-padding bg-neutral-900">
+        <div class="container mx-auto px-4">
+            <h2 class="font-serif text-3xl md:text-4xl gold-text text-center mb-12">Discover Our Signature Treatments</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Treatment Card 1: IV Therapy -->
+                <div class="modal-card p-6 text-center transform hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="openModal('modal-iv-therapy')" role="button" tabindex="0">
+                    <img src="images/icon-iv-therapy.webp" alt="IV Therapy Icon" class="h-16 w-16 mx-auto mb-4">
+                    <h3 class="text-2xl font-semibold gold-text mb-3">IV Vitamin Therapy</h3>
+                    <p class="text-gray-400">Unlock cellular hydration & immune boost for peak wellness.</p>
+                </div>
+
+                <!-- Treatment Card 2: Hormone Optimization -->
+                <div class="modal-card p-6 text-center transform hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="openModal('modal-hormone')" role="button" tabindex="0">
+                    <img src="images/icon-iv-therapy.webp" alt="Hormone Optimization Icon" class="h-16 w-16 mx-auto mb-4">
+                    <h3 class="text-2xl font-semibold gold-text mb-3">Hormone Optimization</h3>
+                    <p class="text-gray-400">Restore balance and vitality with tailored hormone therapies.</p>
+                </div>
+
+                <!-- Treatment Card 3: Stem Cell & Exosome -->
+                <div class="modal-card p-6 text-center transform hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="openModal('modal-stem-cell')" role="button" tabindex="0">
+                    <img src="images/icon-iv-therapy.webp" alt="Stem Cell Therapy Icon" class="h-16 w-16 mx-auto mb-4">
+                    <h3 class="text-2xl font-semibold gold-text mb-3">Stem Cell & Exosome</h3>
+                    <p class="text-gray-400">Experience advanced healing & rejuvenation for a younger you.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==== ALL OTHER SECTIONS, MODALS, and FOOTER ==== -->
+    <!-- Content from your original file goes here. Ensure it is placed within the body tag -->
+
+
+    <!-- ==== FOOTER ==== -->
+    <footer class="bg-black border-t border-neutral-800 py-8">
+        <div class="container mx-auto px-4 text-center text-gray-500">
+            <div class="mb-4">
+                <a href="#about-us-section" class="px-3 hover:text-gold-text">About</a>
+                <span class="gold-text">|</span>
+                <a href="#signature-treatments" class="px-3 hover:text-gold-text">Treatments</a>
+                <span class="gold-text">|</span>
+                <a href="https://www.zocdoc.com/practice/revyve-wellness-135421?lock=true&isNewPatient=false&referrerType=widget" target="_blank" rel="noopener noreferrer" class="px-3 hover:text-gold-text">Book Now</a>
+                <span class="gold-text">|</span>
+                <a href="#contact-section" class="px-3 hover:text-gold-text">Contact</a>
+            </div>
+            <p>Copyright © <span id="current-year"></span> ReVyve Wellness Lounge. All Rights Reserved.</p>
+            <p class="text-xs mt-2">Serving Lafayette, LA and surrounding areas.</p>
+        </div>
+    </footer>
+
+    <!-- ==== JAVASCRIPT ==== -->
+    <script>
+        // --- Mobile Menu Logic ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMobileMenu() {
+            const isExpanded = mobileMenu.classList.toggle('active');
+            mobileMenuButton.setAttribute('aria-expanded', isExpanded);
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
+        }
+
+        mobileMenuButton.addEventListener('click', toggleMobileMenu);
+
+        // --- Modal Logic ---
+        let previouslyFocusedElement;
+
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                previouslyFocusedElement = document.activeElement;
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                
+                // Accessibility: Trap focus within the modal
+                const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                const firstFocusableElement = focusableElements[0];
+                const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+                modal.addEventListener('keydown', function(e) {
+                    let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+                    if (!isTabPressed) { return; }
+
+                    if (e.shiftKey) { // Shift + Tab
+                        if (document.activeElement === firstFocusableElement) {
+                            lastFocusableElement.focus();
+                            e.preventDefault();
+                        }
+                    } else { // Tab
+                        if (document.activeElement === lastFocusableElement) {
+                            firstFocusableElement.focus();
+                            e.preventDefault();
+                        }
+                    }
+                });
+                
+                firstFocusableElement.focus();
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                if (previouslyFocusedElement) {
+                    previouslyFocusedElement.focus();
+                }
+            }
+        }
+        // Close modal with Escape key or by clicking overlay
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay').forEach(modal => {
+                    if (modal.style.display === 'flex') closeModal(modal.id);
+                });
+            }
+        });
+         window.addEventListener('click', function(event) {
+            document.querySelectorAll('.modal-overlay').forEach(modal => {
+                if (event.target == modal) {
+                    closeModal(modal.id);
+                }
+            });
+        });
+
+        // --- Smooth Scrolling for Anchor Links ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // --- Dynamic Copyright Year ---
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
